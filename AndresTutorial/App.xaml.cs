@@ -9,5 +9,5 @@ public partial class App : Application
 		MainPage = new NavigationPage(new MainPage());
         Current.UserAppTheme = AppTheme.Light;
 
-    }
+    }	
 }

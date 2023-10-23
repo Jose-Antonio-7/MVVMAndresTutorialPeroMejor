@@ -3,10 +3,20 @@
     x:Class="AndresTutorial.Pages.ListadoPedidosPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:models="clr-namespace:AndresTutorial.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:AndresTutorial.Models.ViewModels"
     Title="Pedidos"
     x:DataType="vm:PedidosViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
     <FlexLayout>
         <Grid>
 
@@ -15,7 +25,7 @@
                 <ColumnDefinition Width="6*" />
             </Grid.ColumnDefinitions>
 
-            <Frame Grid.Column="0" BackgroundColor="red">
+            <Frame Grid.Column="0" BackgroundColor="IndianRed">
                 <StackLayout>
                     <Entry
                         x:Name="ID"
@@ -35,16 +45,14 @@
             <CollectionView
                 x:Name="CollectionViwsPedidos"
                 Grid.Column="1"
-                BackgroundColor="Green"
+                BackgroundColor="LightSkyBlue"
                 EmptyView="Sin datos registrados"
                 ItemsSource="{Binding Pedidos}"
-                SelectionMode="Single">
-
+                SelectionMode="None">
 
                 <CollectionView.ItemTemplate>
-
                     <DataTemplate x:DataType="{x:Type models:Pedido}">
-                        <SwipeView>
+                        <SwipeView android:SwipeView.SwipeTransitionMode="Drag">
 
                             <SwipeView.LeftItems>
                                 <!--  Borra con movimiento  -->
@@ -55,18 +63,20 @@
                                         Text="Delete" />
                                 </SwipeItems>-->
 
-                                <SwipeItems SwipeBehaviorOnInvoked="Close">
+                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
                                     <SwipeItem
                                         BackgroundColor="LightPink"
                                         Clicked="BorrarProducto"
+                                        IsVisible="{Binding Blocked, Converter={StaticResource InvertedBoolConverter}}"
                                         Text="Delete" />
 
-                                    <SwipeItem
-                                        x:Name="BtnBorrar"
+                                    <!--  Boton bloquear en swipe  -->
+                                    <!--<SwipeItem
                                         BackgroundColor="LightYellow"
                                         Clicked="BloquearProducto"
                                         IconImageSource="https://cdn-icons-png.flaticon.com/512/61/61457.png"
-                                        Text="Block" />
+                                        IsVisible="True"
+                                        Text="Block" />-->
                                 </SwipeItems>
                             </SwipeView.LeftItems>
 
@@ -85,20 +95,19 @@
                                             FontAttributes="Bold"
                                             Text="{Binding Blocked, StringFormat='Bloqueado: {0}'}"
                                             VerticalOptions="Center" />
-                                        <Switch IsToggled="{Binding Blocked}" VerticalOptions="Center" />
+                                        <Switch
+                                            IsToggled="{Binding Blocked}"
+                                            OnColor="LightGreen"
+                                            ThumbColor="DarkGrey"
+                                            VerticalOptions="Center" />
                                     </HorizontalStackLayout>
 
                                 </VerticalStackLayout>
                             </Frame>
-
                         </SwipeView>
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
         </Grid>
-
-
     </FlexLayout>
 </ContentPage>
