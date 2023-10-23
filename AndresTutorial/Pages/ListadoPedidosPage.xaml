@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AndresTutorial.Pages.ListadoPedidosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:AndresTutorial.Models"
+    xmlns:vm="clr-namespace:AndresTutorial.Models.ViewModels"
+    Title="Pedidos"
+    x:DataType="vm:PedidosViewModel">
+    <FlexLayout>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0" BackgroundColor="red">
+                <StackLayout>
+                    <Entry
+                        x:Name="ID"
+                        Placeholder="Pedido ID"
+                        Text="{Binding Pedido.PedidoId}" />
+                    <Entry
+                        x:Name="Name"
+                        Placeholder="Pedido Nombre"
+                        Text="{Binding Pedido.PedidoName}" />
+                    <Button
+                        x:Name="Agregar"
+                        Clicked="Agregar_Clicked"
+                        Text="Agregar pedido" />
+                </StackLayout>
+            </Frame>
+
+            <CollectionView
+                x:Name="CollectionViwsPedidos"
+                Grid.Column="1"
+                BackgroundColor="Green"
+                EmptyView="Sin datos registrados"
+                ItemsSource="{Binding Pedidos}"
+                SelectionMode="Single">
+
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate x:DataType="{x:Type models:Pedido}">
+                        <SwipeView>
+
+                            <SwipeView.LeftItems>
+                                <!--  Borra con movimiento  -->
+                                <!--<SwipeItems Mode="Execute">
+                                    <SwipeItem
+                                        BackgroundColor="LightPink"
+                                        Clicked="BorrarProducto"
+                                        Text="Delete" />
+                                </SwipeItems>-->
+
+                                <SwipeItems SwipeBehaviorOnInvoked="Close">
+                                    <SwipeItem
+                                        BackgroundColor="LightPink"
+                                        Clicked="BorrarProducto"
+                                        Text="Delete" />
+
+                                    <SwipeItem
+                                        x:Name="BtnBorrar"
+                                        BackgroundColor="LightYellow"
+                                        Clicked="BloquearProducto"
+                                        IconImageSource="https://cdn-icons-png.flaticon.com/512/61/61457.png"
+                                        Text="Block" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <Frame>
+                                <VerticalStackLayout VerticalOptions="Center">
+                                    <Label
+                                        Grid.Row="0"
+                                        FontAttributes="Bold"
+                                        Text="{Binding PedidoName, StringFormat='Nombre de pedido: {0}'}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        FontAttributes="Bold"
+                                        Text="{Binding PedidoId, StringFormat='ID de pedido: {0}'}" />
+                                    <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding Blocked, StringFormat='Bloqueado: {0}'}"
+                                            VerticalOptions="Center" />
+                                        <Switch IsToggled="{Binding Blocked}" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                            </Frame>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+
+    </FlexLayout>
+</ContentPage>

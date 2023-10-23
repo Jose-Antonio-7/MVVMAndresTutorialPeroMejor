@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AndresTutorial.Pages.PedidoDetailPage"
+             Title="PedidoDetailPage"
+             xmlns:vm="clr-namespace:AndresTutorial.Models.ViewModels"
+             x:DataType="vm:PedidoDetailViewModel">
+    <VerticalStackLayout>
+        <TableView Intent="Data">
+            <TableRoot Title="Detalles de Pedido">
+                <TableSection >
+                    <TextCell x:Name="Id" Text="Id de Pedido" Detail="{Binding Pedido.PedidoId}"/>
+                    <TextCell x:Name="Name" Text="Nombre de Pedido" Detail="{Binding Pedido.PedidoName}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </VerticalStackLayout>
+</ContentPage>
