@@ -1,4 +1,6 @@
-﻿namespace AndresTutorial;
+﻿using AndresTutorial.Pages;
+
+namespace AndresTutorial;
 
 public partial class App : Application
 {
@@ -6,7 +8,8 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new MainPage());
+        MainPage = new Login();
+		//MainPage = new NavigationPage(new MainPage());
         Current.UserAppTheme = AppTheme.Light;
 
     }	
