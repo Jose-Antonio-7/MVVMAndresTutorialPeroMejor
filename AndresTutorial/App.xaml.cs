@@ -8,9 +8,9 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        //MainPage = new AppShell();
+        MainPage = new AppShell();
 
-        MainPage = new NavigationPage(new Login());
+        //MainPage = new NavigationPage(new Login());
         //MainPage = new NavigationPage(new MainPage());
         Current.UserAppTheme = AppTheme.Light;
 

@@ -7,7 +7,7 @@
     NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout Margin="40,0">
 
-        <Image Margin="40,100,40,50" Source="pharmacysoft_logo.png" />
+        <Image Margin="35,100,35,50" Source="pharmacysoft_logo.png" />
 
         <Label
             Margin="0,20,0,0"
@@ -62,7 +62,7 @@
             VerticalOptions="Center" />
 
         <Label
-            Margin="0,80,0,0"
+            Margin="0,100,0,0"
             FontAttributes="Bold"
             FontSize="Small"
             HorizontalOptions="Center"
