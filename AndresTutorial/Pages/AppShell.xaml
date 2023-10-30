@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="AndresTutorial.Pages.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AndresTutorial.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.NavBarIsVisible="False">
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:Login}"
+        Route="Login" />-->
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:BienvenidaPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="ListadoPedidos"
+        ContentTemplate="{DataTemplate local:Login}"
+        FlyoutItemIsVisible="False"
+        Route="Login" />
+
+    <ShellContent
+        Title="ListadoPedidos"
+        ContentTemplate="{DataTemplate local:ListadoPedidosPage}"
+        Route="ListadoPedidosPage" />
+
+</Shell>
