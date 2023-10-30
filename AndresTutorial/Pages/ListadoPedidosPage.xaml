@@ -9,7 +9,8 @@
     xmlns:vm="clr-namespace:AndresTutorial.Models.ViewModels"
     Title="Pedidos"
     x:DataType="vm:PedidosViewModel"
-    NavigationPage.HasNavigationBar="False">
+    Shell.NavBarIsVisible="True"
+    Shell.TabBarIsVisible="False">
 
     <ContentPage.Resources>
         <ResourceDictionary>

@@ -5,27 +5,123 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AndresTutorial.Pages"
     Shell.FlyoutBehavior="Flyout"
-    Shell.NavBarIsVisible="False">
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False">
 
-    <!--<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:Login}"
-        Route="Login" />-->
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:BienvenidaPage}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <Image Margin="40,30" Source="pharmacysoft_logo.png" />
+    </Shell.FlyoutHeader>
 
-    <ShellContent
-        Title="ListadoPedidos"
-        ContentTemplate="{DataTemplate local:Login}"
-        FlyoutItemIsVisible="False"
-        Route="Login" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
 
-    <ShellContent
-        Title="ListadoPedidos"
-        ContentTemplate="{DataTemplate local:ListadoPedidosPage}"
-        Route="ListadoPedidosPage" />
+        <ShellContent
+            Title="Login"
+            ContentTemplate="{DataTemplate local:Login}"
+            FlyoutItemIsVisible="False"
+            Route="Login" />
+
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:BienvenidaPage}"
+            Icon="dotnet_bot.svg"
+            Route="BienvenidaPage" />
+
+        <ShellContent
+            Title="ListadoPedidos"
+            ContentTemplate="{DataTemplate local:ListadoPedidosPage}"
+            Icon="dotnet_bot.svg"
+            Route="ListadoPedidosPage" />
+
+        <ShellContent Title="Surtido por Zona" Icon="surtido_zona_nbg.png" />
+
+        <ShellContent Title="Surtido Completo" Icon="surtido_completo_nbg.png" />
+
+        <ShellContent Title="Asignar Zona" Icon="asignar_zona_nbg.png" />
+
+        <ShellContent Title="Inventario" Icon="inventario_nbg.png" />
+
+        <ShellContent Title="Ubicacion" Icon="ubicacion_nbg.png" />
+
+        <ShellContent Title="Salir" Icon="salir_nbg.png" />
+
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <Label
+            Margin="0,50,0,0"
+            FontAttributes="Bold"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            Text="Power by Bisoft"
+            TextColor="Black"
+            VerticalOptions="End" />
+    </Shell.FlyoutFooter>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+
+            <!--<Grid ColumnDefinitions="0.4*,0.6*">
+                <Image
+                    Margin="15"
+                    HeightRequest="45"
+                    Source="{Binding FlyoutIcon}" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="{Binding Title}"
+                    VerticalTextAlignment="Center" />
+            </Grid>-->
+
+
+            <!--<Frame
+                Margin="50,0"
+                Padding="0"
+                BorderColor="LightGray"
+                CornerRadius="0">
+                <Grid ColumnDefinitions="0.4*,0.6*">
+                    <HorizontalStackLayout>
+                        <Image
+                            Margin="0"
+                            HeightRequest="45"
+                            Source="{Binding FlyoutIcon}" />
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="{Binding Title}"
+                            VerticalTextAlignment="Center" />
+
+                    </HorizontalStackLayout>
+
+                </Grid>
+
+            </Frame>-->
+
+            <Border Margin="20,0" Padding="0">
+                <Grid Margin="25,0,0,0" ColumnDefinitions="0.3*,0.7*">
+                    <HorizontalStackLayout HeightRequest="60">
+                        <Image
+                            Margin="0"
+                            Source="{Binding FlyoutIcon}"
+                            WidthRequest="50" />
+
+
+                    </HorizontalStackLayout>
+                    <Label
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start"
+                        Text="{Binding Title}"
+                        VerticalTextAlignment="Center" />
+
+                </Grid>
+
+            </Border>
+
+
+
+
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
 </Shell>
