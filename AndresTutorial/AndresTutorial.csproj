@@ -49,7 +49,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Icons\inventario_nbg.png" />
+	  <None Remove="Resources\Images\Icons\salir_nbg.png" />
+	  <None Remove="Resources\Images\Icons\surtido_completo_nbg.png" />
+	  <None Remove="Resources\Images\Icons\surtido_zona_nbg.png" />
+	  <None Remove="Resources\Images\Icons\ubicacion_nbg.png" />
 	  <None Remove="Resources\Images\pharmacysoft_logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Icons\asignar_zona_nbg.png" />
+	  <MauiImage Include="Resources\Images\Icons\inventario_nbg.png" />
+	  <MauiImage Include="Resources\Images\Icons\salir_nbg.png" />
+	  <MauiImage Include="Resources\Images\Icons\surtido_completo_nbg.png" />
+	  <MauiImage Include="Resources\Images\Icons\surtido_zona_nbg.png" />
+	  <MauiImage Include="Resources\Images\Icons\ubicacion_nbg.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -59,6 +73,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\AppShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\BienvenidaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\ListadoPedidosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
