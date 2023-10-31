@@ -3,13 +3,47 @@
     x:Class="AndresTutorial.Pages.BienvenidaPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="BienvenidaPage"
+    Shell.BackgroundColor="Transparent"
+    Shell.ForegroundColor="Black"
     Shell.NavBarIsVisible="True"
-    Shell.TabBarIsVisible="False">
-    <VerticalStackLayout>
+    Shell.TabBarIsVisible="False"
+    Shell.TabBarUnselectedColor="DodgerBlue"
+    Shell.TitleColor="DodgerBlue">
+
+    <Shell.TitleView>
+        <Grid>
+            <Label
+                Margin="0,0,20,0"
+                FontSize="Medium"
+                HorizontalOptions="End"
+                Text="Waldo.Escobar"
+                TextColor="DodgerBlue"
+                VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
+
+    <VerticalStackLayout Margin="40,0">
+
         <Label
+            Margin="0,150,0,50"
+            FontAttributes="Bold"
+            FontSize="Large"
             HorizontalOptions="Center"
-            Text="Pagina de bienvenida"
-            VerticalOptions="Center" />
+            HorizontalTextAlignment="Center"
+            Text="Bienvenido al sistema de surtido de PharmacySoft"
+            TextColor="DodgerBlue"
+            VerticalOptions="Start" />
+
+        <Image Margin="0,100,0,0" Source="pharmacysoft_logo.png" />
+
+        <Label
+            Margin="0,250,0,0"
+            FontAttributes="Bold"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            Text="Power by Bisoft"
+            TextColor="Black"
+            VerticalOptions="End" />
+
     </VerticalStackLayout>
 </ContentPage>

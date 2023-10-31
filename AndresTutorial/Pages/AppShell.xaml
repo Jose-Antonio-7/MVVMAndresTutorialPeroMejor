@@ -43,7 +43,16 @@
 
         <ShellContent Title="Ubicacion" Icon="ubicacion_nbg.png" />
 
-        <ShellContent Title="Salir" Icon="salir_nbg.png" />
+        <!--
+            La nevegacion no funciona aqui debido a que el primer shellcontent es Login tambien
+            el de arriba se usa para que por default empiece en login, debido a esto no esta visible la opcion
+            se deberia agregar una manera diferente de definir la pantalla de inicio
+        -->
+        <ShellContent
+            Title="Salir"
+            ContentTemplate="{DataTemplate local:Login}"
+            Icon="salir_nbg.png"
+            Route="Login" />
 
     </FlyoutItem>
 
@@ -99,7 +108,10 @@
 
             </Frame>-->
 
-            <Border Margin="20,0" Padding="0">
+            <Border
+                Margin="20,0"
+                Padding="0"
+                StrokeThickness="2">
                 <Grid Margin="25,0,0,0" ColumnDefinitions="0.3*,0.7*">
                     <HorizontalStackLayout HeightRequest="60">
                         <Image
@@ -116,9 +128,6 @@
                         VerticalTextAlignment="Center" />
                 </Grid>
             </Border>
-
-
-
 
         </DataTemplate>
     </Shell.ItemTemplate>
